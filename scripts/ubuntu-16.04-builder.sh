@@ -35,5 +35,9 @@ virt-builder \
   --update \
   --size 20G
 
+
+echo "$IMAGENAME created. You can now make friends with virsh, like this: "
+echo "sudo virt-install --import --name $GUESTNAME --ram 1024 --disk path=$IMAGENAME,format=qcow2 --os-variant ubuntu16.04"
+
 # Explicitly exit gracefully
 exit 0
