@@ -23,7 +23,7 @@ then
 fi
 
 # /etc/default/grub manipulation and run-command definition from
-# virt-builder notes ubuntu-16.04
+# virt-builder --notes ubuntu-16.04
 virt-builder \
   ubuntu-16.04 \
   --output "$IMAGENAME" \
@@ -37,7 +37,7 @@ virt-builder \
 
 
 echo "$IMAGENAME created. You can now make friends with virsh, like this: "
-echo "sudo virt-install --import --name $GUESTNAME --ram 1024 --disk path=$IMAGENAME,format=qcow2 --os-variant ubuntu16.04"
+echo "sudo virt-install --import --name $GUESTNAME --ram 1024 --disk path=$IMAGENAME,format=qcow2 --os-variant ubuntu16.04 --graphics none --noautoconsole"
 
 # Explicitly exit gracefully
 exit 0
