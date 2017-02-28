@@ -7,13 +7,20 @@
 set -e
 
 if [ $# -ne 1 ]
-  then
-    echo "Need to specify an argument (name)"
-    exit 1
+then
+  echo "Need to specify an argument (name)!"
+  exit 1
 fi
 
 GUESTNAME="$1"
 IMAGENAME="$1".qcow2
+
+# Simple file check (race condition prone)
+if [ -e "$IMAGENAME" ]
+then
+  echo "File $IMAGENAME already exists, exiting!"
+  exit 1
+fi
 
 # /etc/default/grub manipulation and run-command definition from
 # virt-builder notes ubuntu-16.04
