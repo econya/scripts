@@ -14,6 +14,9 @@ fi
 
 GUESTNAME="$1"
 IMAGENAME="$1".qcow2
+REDMINE_PASSWORD=$(date +%s%N | sha256sum | base64 | head -c 32)
+
+
 
 # Simple file check (race condition prone)
 if [ -e "$IMAGENAME" ]
@@ -34,13 +37,16 @@ virt-builder \
   --edit '/etc/network/interfaces:
           s/ens2/ens3/' \
   --run-command "update-grub" \
-  --run-command "useradd -m -p '' redmine ; chage -d redmine " \
+  --run-command "useradd -G sudo -s /bin/bash -m -p '' redmine"\
+  --run-command "echo redmine:$REDMINE_PASSWORD | chpasswd" \
   --firstboot-install "mysql-server" \
-  --install "mysql-client,libmysqlclient-dev,git-core,subversion,imagemagick,libmagickwand-dev,libcurl4-openssl-dev" \
+  --install "mysql-server,mysql-client,libmysqlclient-dev,git-core,subversion,imagemagick,libmagickwand-dev,libcurl4-openssl-dev" \
   --update \
   --size 20G
 
 # chown -R redmine /var/www
+
+echo "The redmine user has the password: $REDMINE_PASSWORD"
 echo "$IMAGENAME created. You can now make friends with virsh, like this: "
 echo "sudo virt-install --import --name $GUESTNAME --ram 1024 --disk path=$IMAGENAME,format=qcow2 --os-variant ubuntu16.04 --graphics none --noautoconsole"
 
