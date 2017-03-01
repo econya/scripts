@@ -29,8 +29,10 @@ virt-builder \
   --output "$IMAGENAME" \
   --format qcow2 \
   --hostname "$GUESTNAME" \
-  --edit '/etc/default/grub: s/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="console=tty0 console=ttyS0,115200n8"/' \
-  --edit '/etc/network/interfaces: s/^ens2/ens3/' \
+  --edit '/etc/default/grub:
+          s/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="console=tty0 console=ttyS0,115200n8"/' \
+  --edit '/etc/network/interfaces:
+          s/ens2/ens3/' \
   --run-command update-grub \
   --update \
   --size 20G
