@@ -34,8 +34,6 @@ virt-builder \
   --hostname "$GUESTNAME" \
   --edit '/etc/default/grub:
           s/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="console=tty0 console=ttyS0,115200n8"/' \
-  --edit '/etc/network/interfaces:
-          s/ens2/ens3/' \
   --run-command "update-grub" \
   --run-command "useradd -G sudo -s /bin/bash -m -p '' redmine"\
   --run-command "echo redmine:$REDMINE_PASSWORD | chpasswd" \
