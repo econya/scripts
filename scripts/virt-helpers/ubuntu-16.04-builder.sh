@@ -22,8 +22,8 @@ then
   exit 1
 fi
 
-# /etc/default/grub manipulation and run-command definition from
-# virt-builder --notes ubuntu-16.04
+# /etc/default/grub manipulation and run-command definition from:
+# `virt-builder --notes ubuntu-16.04`
 virt-builder \
   ubuntu-16.04 \
   --output "$IMAGENAME" \
