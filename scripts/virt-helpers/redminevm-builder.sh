@@ -38,7 +38,7 @@ virt-builder \
   --run-command "useradd -G sudo -s /bin/bash -m -p '' redmine"\
   --run-command "echo redmine:$REDMINE_PASSWORD | chpasswd" \
   --firstboot-install "mysql-server" \
-  --install "mysql-server,mysql-client,libmysqlclient-dev,git-core,subversion,imagemagick,libmagickwand-dev,libcurl4-openssl-dev" \
+  --install "mysql-server,mysql-client,libmysqlclient-dev,git-core,subversion,imagemagick,libmagickwand-dev,libcurl4-openssl-dev,unzip,curl" \
   --update \
   --size 20G
 
