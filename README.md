@@ -18,3 +18,7 @@ provision an Ubuntu 16.04 machine using virt-builder that comes slightly prepare
 
 Example: `redmine-builder.sh projects-test`
 Results in the file `projects-test.qcow2` which is a Ubuntu 16.04 installation with some additional packages installed.
+
+### fake-dokku-app.sh
+
+Do what you shouldnt do (http://stackoverflow.com/questions/42529271/how-to-proxy-subdomains-to-other-servers-with-dokku), use dokku to hook in some legacy systems in your dokku awesomness.
