@@ -1,10 +1,12 @@
 #!/bin/bash
+
 # Create an oppinionated bare metal Ubuntu 16.04 VM disk using virt-builder.
+
 # Copyright 2017, Felix Wolfsteller
 # License: GPLv3+
 
 # Exit on errors
-set -e
+set -euo pipefail
 
 if [ $# -ne 1 ]
 then

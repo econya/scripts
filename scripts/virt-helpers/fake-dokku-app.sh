@@ -12,7 +12,7 @@
 # dokku awesomeness!
 
 # Exit on errors
-set -e
+set -euo pipefail
 
 if [ $# -ne 3 ]
 then
