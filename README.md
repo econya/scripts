@@ -1,4 +1,4 @@
-#Scripts and hacks, not yet emancipated
+# Scripts and hacks, not yet emancipated
 
 Copyright Felix Wolfsteller 2017
 Licensed under the GPL v3 or any later version.
